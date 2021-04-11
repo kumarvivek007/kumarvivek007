@@ -69,8 +69,6 @@ public class LinkedListRemoveDuplicate {
 
         Chain output = removeDuplicate(input);
         printList(output.head);
-
-
     }
 
 }
