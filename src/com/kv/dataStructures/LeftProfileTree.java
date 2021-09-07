@@ -1,5 +1,8 @@
 package com.kv.dataStructures;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Print Left  view of a tree.
  *         1
@@ -35,18 +38,27 @@ public class LeftProfileTree {
         Tree tree = new Tree();
         tree.printTree(root);
 
+        List<Integer> list = new ArrayList<>();
+
         System.out.println("");
+
+        System.out.println("Only Left View of the tree");
+        tree.printOnlyLeftView(root,1);
 
         System.out.println("Left View of the tree");
 
-        tree.printLeftView(root,1);
+        tree.printLeftView(root.left,1, list);
 
         System.out.println("");
 
         System.out.println("Right View of the tree");
         Tree.max_val = 0;
 
-        tree.printRightView(root,1);
+        tree.printRightView(root,1,list);
+
+        for(Integer i: list){
+            System.out.print(i+" ");
+        }
     }
 }
 
@@ -74,34 +86,50 @@ class Tree {
 
     }
 
-    public void printLeftView(Node root, int level){
+    public void printOnlyLeftView(Node root, int level){
         if(root == null) {
             return;
         }
 
         if(max_val < level ){
-            System.out.print( root.data +"  ");
+            System.out.print (root.data +"  ");
+            //list.add( root.data);
             max_val = level;
         }
 
-        printLeftView(root.left, level+1);
-
-        printLeftView(root.right, level+1);
+        printOnlyLeftView(root.left, level+1);
+        printOnlyLeftView(root.right, level+1);
 
     }
 
-    public void printRightView(Node root, int level){
+    public void printLeftView(Node root, int level,List<Integer> list){
         if(root == null) {
             return;
         }
 
         if(max_val < level ){
-            System.out.print( root.data +"  ");
+            list.add( root.data);
             max_val = level;
         }
 
-        printRightView(root.right, level+1);
-        printRightView(root.left, level+1);
+        printLeftView(root.left, level+1,list);
+
+        //printLeftView(root.right, level+1);
+
+    }
+
+    public void printRightView(Node root, int level, List<Integer> list){
+        if(root == null) {
+            return;
+        }
+
+        if(max_val < level ){
+           list.add( root.data);
+            max_val = level;
+        }
+
+        printRightView(root.right, level+1, list);
+        printRightView(root.left, level+1,list);
 
 
 
