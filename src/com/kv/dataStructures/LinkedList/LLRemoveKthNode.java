@@ -1,4 +1,4 @@
-package com.kv.dataStructures;
+package com.kv.dataStructures.LinkedList;
 
 public class LLRemoveKthNode {
 

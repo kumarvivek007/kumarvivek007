@@ -1,4 +1,4 @@
-package com.kv.dataStructures;
+package com.kv.dataStructures.BinaryTreeTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
  *         1
  *    2          3
  *        5   6      7
- *           8
+ *                8
  *   o/p: [1,2,5,8]
  */
 
@@ -45,9 +45,9 @@ public class LeftProfileTree {
         System.out.println("Only Left View of the tree");
         tree.printOnlyLeftView(root,1);
 
-        System.out.println("Left View of the tree");
+        //System.out.println("Left View of the tree");
 
-        tree.printLeftView(root.left,1, list);
+        //tree.printLeftView(root.left,1, list);
 
         System.out.println("");
 
